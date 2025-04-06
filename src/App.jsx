@@ -82,20 +82,7 @@ function App() {
 
   return (
     <>
-      <head>
-        <title>John Doe | Full Stack Developer</title>
-        <meta
-          name="description"
-          content="A creative full-stack developer portfolio built with React & Tailwind CSS."
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="John Doe Portfolio" />
-        <meta
-          property="og:description"
-          content="Showcasing my skills, experience, and projects as a full-stack developer."
-        />
-        <meta property="og:image" content="/og-image.jpg" />
-      </head>
+ 
       <motion.header
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -107,7 +94,7 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-white via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
         <section
           id="hero"
-          className="min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300"
+          className="min-h-screen pt-16 flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300"
         >
           <div className="absolute inset-0 z-0">
             <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-300 dark:bg-indigo-800 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-float" />
