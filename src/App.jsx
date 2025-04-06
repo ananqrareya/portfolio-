@@ -83,14 +83,10 @@ function App() {
   return (
     <>
  
-      <motion.header
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="w-full py-4 px-6 flex justify-end items-center fixed top-0 left-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm"
-      >
+      <div className="fixed top-4 right-4 z-50">
         <DarkModeToggle title="Toggle Dark Mode" />
-      </motion.header>
+      </div>
+
       <div className="min-h-screen bg-gradient-to-br from-white via-indigo-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
         <section
           id="hero"
