@@ -1,4 +1,4 @@
-import imge from "./assets/profile-pic-removebg-preview.png";
+import imge from "./assets/AnanQrareyLogo.png";
 import GitHub from "./icons/github-svgrepo-com.svg";
 import Linkedin from "./icons/linkedin-svgrepo-com.svg";
 import Facebook from "./icons/facebook-color-svgrepo-com.svg";

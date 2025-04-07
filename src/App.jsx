@@ -38,7 +38,9 @@ import postgres from "./icons/postgre_5968342.png";
 import GitHub from "./icons/github-svgrepo-com.svg";
 import linkenin from "./icons/linkedin-svgrepo-com.svg";
 import Gmail from "./icons/gmail-svgrepo-com.svg";
-import AboutMe from "./assets/ChatGPT Image Apr 6, 2025, 08_45_24 PM.png";
+ 
+import Lottie from "lottie-react";
+import animationdeveloper from './assets/Animation - 1744038675554.json';
 function App() {
   const [activeSection, setActiveSection] = useState("hero");
   const [showScroll, setShowScroll] = useState(false);
@@ -287,11 +289,13 @@ function App() {
                 className="relative"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl opacity-20 blur-2xl" />
-                <img
-                  src={AboutMe}
-                  alt="Profile"
-                  className="relative rounded-3xl shadow-2xl ring-4 ring-white dark:ring-gray-800 hover:scale-105 transition-transform duration-500"
+                
+                <Lottie
+                  animationData={animationdeveloper}
+                  loop
+                  className="rounded-3xl shadow-2xl ring-4 ring-white dark:ring-gray-800"
                 />
+
               </motion.div>
 
               <motion.div
