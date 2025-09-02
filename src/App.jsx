@@ -38,9 +38,10 @@ import postgres from "./icons/postgre_5968342.png";
 import GitHub from "./icons/github-svgrepo-com.svg";
 import linkenin from "./icons/linkedin-svgrepo-com.svg";
 import Gmail from "./icons/gmail-svgrepo-com.svg";
- 
+
 import Lottie from "lottie-react";
 import animationdeveloper from './assets/Animation - 1744038675554.json';
+import ContactSection from "./components/ContactSection";
 function App() {
   const [activeSection, setActiveSection] = useState("hero");
   const [showScroll, setShowScroll] = useState(false);
@@ -81,10 +82,11 @@ function App() {
     window.addEventListener("scroll", toggleScroll);
     return () => window.removeEventListener("scroll", toggleScroll);
   }, []);
-
+  const isVideoLink = (url = "") =>
+    /(youtube\.com|youtu\.be|vimeo\.com)|\.(mp4|mov|webm)(\?.*)?$/i.test(url);
   return (
     <>
- 
+
       <div className="fixed top-4 right-4 z-50">
         <DarkModeToggle title="Toggle Dark Mode" />
       </div>
@@ -156,7 +158,7 @@ function App() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-600 dark:text-gray-300 justify-center md:justify-start">
                   <a
-                    href="./Anan Qrareya CV.pdf"
+                    href="./AnanQrareya.pdf"
                     download
                     className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 dark:bg-indigo-800 dark:text-indigo-200 px-4 py-2 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-700 transition"
                   >
@@ -240,15 +242,27 @@ function App() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative rounded-[2rem] overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl hover:scale-105 transition-transform">
-                <div className="absolute inset-0 rounded-[2rem] bg-pink-500 opacity-20 blur-3xl z-[-1]" />
-                <img
-                  src={heroData.image}
-                  alt="Profile"
-                  className="w-full h-[600px] object-cover mix-blend-multiply  "
-                />
+              <div className="relative w-full max-w-[420px] md:max-w-[560px] mx-auto">
+                <div
+                  className="relative rounded-[2rem] overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl hover:scale-105 transition-transform"
+                  style={{ aspectRatio: "4 / 5" }}    
+                >
+                
+                  <div className="absolute inset-0 rounded-[2rem] bg-pink-500/20 blur-3xl -z-10" />
+
+                  <img
+                    src={heroData.image}
+                    alt="Profile"
+                    className="absolute inset-0 w-full h-full object-cover object-top"  
+                    loading="eager"
+                    decoding="async"
+                  />
+                 
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+                </div>
               </div>
             </motion.div>
+
           </div>
 
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -289,7 +303,7 @@ function App() {
                 className="relative"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl opacity-20 blur-2xl" />
-                
+
                 <Lottie
                   animationData={animationdeveloper}
                   loop
@@ -307,9 +321,8 @@ function App() {
                 {aboutData.paragraphs.map((para, i) => (
                   <p
                     key={i}
-                    className={`text-xl text-gray-600 dark:text-gray-300 ${
-                      i !== aboutData.paragraphs.length - 1 ? "mb-6" : ""
-                    } leading-relaxed`}
+                    className={`text-xl text-gray-600 dark:text-gray-300 ${i !== aboutData.paragraphs.length - 1 ? "mb-6" : ""
+                      } leading-relaxed`}
                   >
                     {para}
                   </p>
@@ -399,11 +412,10 @@ function App() {
 
                         {job.type && (
                           <span
-                            className={`mt-1 inline-block text-xs px-2 py-1 rounded-full font-medium ${
-                              job.type === "Internship"
+                            className={`mt-1 inline-block text-xs px-2 py-1 rounded-full font-medium ${job.type === "Internship"
                                 ? "bg-green-100 text-green-700 dark:bg-green-700 dark:text-white"
                                 : "bg-blue-100 text-blue-700 dark:bg-blue-700 dark:text-white"
-                            }`}
+                              }`}
                           >
                             {job.type}
                           </span>
@@ -567,7 +579,7 @@ function App() {
                         >
                           <ExternalLink size={20} />
                           <span className="group-hover:underline text-sm">
-                            Video
+                            {isVideoLink(project.demo) ? "Video" : "Live"}
                           </span>
                         </a>
                       )}
@@ -603,59 +615,9 @@ function App() {
                 </h2>
               </div>
             </motion.div>
+            <ContactSection />
 
-            <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 sm:p-10 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
-              <form className="space-y-8">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Your name"
-                    className="block w-full rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-4 py-3 transition focus:border-indigo-500 focus:ring focus:ring-indigo-200 dark:focus:ring-indigo-500 focus:ring-opacity-50"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="you@example.com"
-                    className="block w-full rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-4 py-3 transition focus:border-indigo-500 focus:ring focus:ring-indigo-200 dark:focus:ring-indigo-500 focus:ring-opacity-50"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={6}
-                    placeholder="Type your message here..."
-                    className="block w-full rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-4 py-3 transition focus:border-indigo-500 focus:ring focus:ring-indigo-200 dark:focus:ring-indigo-500 focus:ring-opacity-50"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-indigo-700 transition transform hover:scale-105"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+
           </div>
         </section>
         <footer className="bg-gray-50 dark:bg-gray-900 py-12 border-t border-gray-200 dark:border-gray-700 transition-colors duration-500">
@@ -710,11 +672,10 @@ function App() {
             <a
               key={i}
               href={item.href}
-              className={`transition rounded-full p-2 ${
-                isActive
+              className={`transition rounded-full p-2 ${isActive
                   ? "bg-indigo-600 text-white shadow-md scale-110"
                   : "text-white dark:text-white hover:text-indigo-400"
-              }`}
+                }`}
               title={item.id.charAt(0).toUpperCase() + item.id.slice(1)}
             >
               <Icon className="w-5 h-5" />

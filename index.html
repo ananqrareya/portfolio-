@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/public/developer.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anan Qrareya</title>
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            // default = dark
+            document.documentElement.classList.add('dark');
+          }
+        } catch { }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
