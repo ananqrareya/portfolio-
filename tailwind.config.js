@@ -5,6 +5,8 @@ export default {
   content: [
     "./index.html",
     "./src/App.jsx",
+    "./src/components/ContactSection.jsx",
+    "./src/components/DarkModeToggle.jsx"
   ],
   darkMode: "class",
   theme: {
